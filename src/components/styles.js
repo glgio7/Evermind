@@ -130,8 +130,7 @@ export const StyledNav = styled.div`
       color: ${({ theme }) => theme.navText};
       font-weight: bold;
     }
-    a:hover,
-    a:focus {
+    a:hover {
       opacity: 0.75;
     }
   }
@@ -182,47 +181,3 @@ export const StyledNav = styled.div`
     }
   }
 `;
-
-// //
-// //
-// //  FUNCTION HEADER - DECLARATION
-// //
-// //
-
-// export default function Header() {
-//   // OPEN MENU
-//   const [isOpen, setOpen] = useState(false);
-//   const toggleMenu = () => {
-//     setOpen(!isOpen);
-//   };
-
-// //
-// //
-// //  FUNCTION HEADER - RETURN
-// //
-// //
-//   return (
-//     <StyledHeader>
-//       <div className="masterhead">
-//         <div className="logobox">
-//           <div className="switcher" ></div>
-//           <a href="/">
-//             <div className="logo">
-//               <img src="/img/evermindlogo.png" />
-//             </div>
-//           </a>
-//         </div>
-//         <IoMenu className="menu" onClick={toggleMenu} />
-//         <StyledNav>
-//           <nav className={isOpen ? "active" : "null"}>
-//             <IoClose className="closeMenu" onClick={toggleMenu} />
-//             <a href="/">Página Inicial</a>
-//             <a href="/articles">Artigos</a>
-//             <a href="/meditations">Meditações</a>
-//             <a href="">Suporte</a>
-//           </nav>
-//         </StyledNav>
-//       </div>
-//     </StyledHeader>
-//   );
-// }

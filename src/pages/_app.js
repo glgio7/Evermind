@@ -4,7 +4,6 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import React, { useState } from "react";
 import { Header, StyledNav } from "../components/styles";
-import { setCookie } from "nookies";
 import Link from "next/link";
 //
 //
@@ -76,21 +75,16 @@ export default function MyApp({ Component, pageProps }) {
   const switchTheme = () => {
     if (isDarkMode) {
       setUserTheme("light");
-      setCookie(null, "USER_THEME", "light", {
-        maxAge: 86400 * 2,
-        path: "/",
-      });
-    }
-    // localStorage.setItem('USER_THEME', 'light')}
+    localStorage.setItem('USER_THEME', 'light')}
 
     if (isLightMode) {
       setUserTheme("dark");
-      setCookie(null, "USER_THEME", "dark", {
-        maxAge: 86400 * 2,
-        path: "/",
-      });
-    }
+      localStorage.setItem('USER_THEME', 'dark')}
   };
+
+  React.useEffect(() => {
+    localStorage.getItem('USER_THEME')
+  },[])
 
   return (
     <>
@@ -100,21 +94,20 @@ export default function MyApp({ Component, pageProps }) {
           <div className="masterhead">
             <div className="logobox">
               <div
-                className={
-                  userTheme === "dark" ? "switcher active" : "switcher"
-                }
+                className="switcher"
+                
                 onClick={switchTheme}
               ></div>
               <Link href="/">
                 <div className="logo">
-                  <img src="/img/evermindlogo.png" alt="Evermind!"/>
+                  <img src="/img/evermindlogo.png" alt="Evermind!" />
                 </div>
               </Link>
             </div>
             <IoMenu className="menu" onClick={toggleMenu} />
             <StyledNav>
-              <nav className={isOpen ? "active" : "null"}>
-                <IoClose className="closeMenu" onClick={toggleMenu} />
+              <nav className={isOpen ? "active" : "null"} onClick={toggleMenu}>
+                <IoClose className="closeMenu" />
                 <Link href="/">Página Inicial</Link>
                 <Link href="/articles">Artigos</Link>
                 <Link href="/meditations">Meditações</Link>

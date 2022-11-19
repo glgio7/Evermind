@@ -10,17 +10,32 @@ const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("/img/articlesbg.jpg");
+    background-color: ${({ theme }) => theme.backgroundColor};
+    padding-bottom: 10%;
+    position: relative;
+    z-index: 5;
+  }
+  .bg{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-position: center;
     background-size: cover;
-    padding-bottom: 10%;
+    background-image: url("/img/articlesbg.jpg");
+    opacity: ${({ theme }) => theme.backgroundOpacity};
   }
   a {
     width: 80%;
+      transition: scale .35s;
 
     &:hover {
       outline: 0;
-      scale: 1.01;
+      scale: 1.02;
     }
     &:active {
       scale: 0.95;
@@ -61,7 +76,7 @@ export default function Articles() {
   return (
     <>
       <StyledSection>
-        <section>
+        <section><div className="bg"></div>
           <h1>Artigos</h1>
           <a href="/articles/neurotransmitters">
             <div className="container">
