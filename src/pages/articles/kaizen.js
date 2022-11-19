@@ -26,7 +26,7 @@ const StyledSection = styled.section`
     width: 80%;
     height: 100%;
     background: rgb(106, 106, 106);
-    background: ${({ theme }) => theme.colors.boxColor};
+    background: ${({ theme }) => theme.boxColor};
     overflow-y: auto;
     padding-block: 5vh;
   }
@@ -34,14 +34,14 @@ const StyledSection = styled.section`
     margin-top: 24px;
     font-size: 1.8rem;
     font-family: "Ubuntu";
-    color: ${({ theme }) => theme.colors.navText};
+    color: ${({ theme }) => theme.navText};
     font-weight: bold;
   }
   h3 {
     margin-block: 24px;
     text-decoration: none;
     font-family: "Ubuntu";
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.textColor};
     opacity: 1;
     font-size: 1.5rem;
     font-weight: bold;
@@ -51,7 +51,7 @@ const StyledSection = styled.section`
     text-align: center;
     text-decoration: none;
     font-family: "Ubuntu";
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.textColor};
     opacity: 1;
     font-size: 1.25rem;
     font-weight: bold;
@@ -63,7 +63,7 @@ const StyledSection = styled.section`
     margin-block: 12px;
     font-size: 1.2rem;
     font-family: "Ubuntu";
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.textColor};
     opacity: 1;
     font-style: italic;
     font-weight: bold;

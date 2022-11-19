@@ -37,7 +37,7 @@ const StyledSection = styled.section`
     height: 100%;
     min-height: 84px;
     background: rgb(106, 106, 106);
-    background: ${({ theme }) => theme.colors.boxColor};
+    background: ${({ theme }) => theme.boxColor};
   }
   h1 {
     margin-top: 24px;
@@ -49,7 +49,7 @@ const StyledSection = styled.section`
   h3 {
     text-decoration: none;
     font-family: "Ubuntu";
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.textColor};
     opacity: 1;
     font-weight: 600;
     font-size: 1.25rem;

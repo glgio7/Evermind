@@ -3,6 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa";
 import Link from "next/link";
+import {themes} from '../pages/_app'
 
 const StyledFooter = styled.div`
   main {

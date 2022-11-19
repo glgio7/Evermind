@@ -60,11 +60,11 @@ const StyledNeuro = styled.section`
     flex-direction: column;
     p {
       margin-block: 20px;
-      background-color: ${({ theme }) => theme.colors.backgroundColor};
+      background-color: ${({ theme }) => theme.backgroundColor};
       text-align: center;
       font-size: 0rem;
       font-family: "Ubuntu";
-      color: ${({ theme }) => theme.colors.textColor};
+      color: ${({ theme }) => theme.textColor};
       width: 80%;
       border-radius: 8px;
       display: none;

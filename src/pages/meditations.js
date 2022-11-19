@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-
+import Link from "next/link";
 
 const StyledMeditation = styled.div`
   
@@ -79,17 +78,17 @@ export default function Meditation() {
         <h1>Canais Recomendados</h1>
         <div className="container">
           <div className="channelsIcon">
-            <a href="https://www.youtube.com/@CorvoSeco" target="_blank">
+            <Link href="https://www.youtube.com/@CorvoSeco" target="_blank">
               <img src="/img/corvoseco.jpg" />
-            </a>
+            </Link>
           </div>
           <h3>Corvo Seco</h3>
         </div>
         <div className="container">
           <div className="channelsIcon">
-            <a href="https://www.youtube.com/@MonjaCoen" target="_blank">
+            <Link href="https://www.youtube.com/@MonjaCoen" target="_blank">
               <img src="/img/mova.jpg" />
-            </a>
+            </Link>
           </div>
           <h3>MOVA</h3>
         </div>
@@ -109,7 +108,7 @@ export default function Meditation() {
           </div>
           <h3>Casa do Saber</h3>
         </div>
-      </section>
+      </section>  
     </StyledMeditation>
     </>
   );

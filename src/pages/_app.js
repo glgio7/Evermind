@@ -4,7 +4,7 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import React, { useState } from "react";
 import { Header, StyledNav } from "../components/styles";
-import { setCookie, parseCookies } from "nookies";
+import { setCookie } from "nookies";
 import Link from "next/link";
 //
 //
@@ -34,7 +34,6 @@ a {
   text-decoration: none;
 }
 `;
-
 const themes = {
   light: {
     textColor: "#111",
