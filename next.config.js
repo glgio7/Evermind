@@ -5,6 +5,9 @@ const nextConfig = {
     styledComponents: true,
   },images: {
     unoptimized: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa";
+import Link from "next/link";
 
 const StyledFooter = styled.div`
   main {
@@ -51,18 +52,18 @@ export default function Footer() {
     <StyledFooter>
       <main>
         <div className="container">
-          <a href="https://github.com/glgio7" target="_blank">
+          <Link href="https://github.com/glgio7" target="_blank">
             <FaGithub className="icons" title="Visit my GitHub" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://www.paypal.com/donate/?hosted_button_id=GEGWZ4NGKNSEW"
             target="_blank"
           >
             <FaPaypal className="icons" title="Donate" />
-          </a>
-          <a href="mailto:giovanelucas00@outlook.com" target="_blank">
+          </Link>
+          <Link href="mailto:giovanelucas00@outlook.com" target="_blank">
             <FaRegEnvelope className="icons" title="Send me an email" />
-          </a>
+          </Link>
         </div>
       </main>
     </StyledFooter>

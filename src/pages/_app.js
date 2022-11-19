@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import React, { useState } from "react";
 import { Header, StyledNav } from "../components/styles";
 import { setCookie, parseCookies } from "nookies";
-
+import Link from "next/link";
 //
 //
 //  GLOBAL AND THEME - STYLED COMPONENTS DECLARATION
@@ -69,7 +69,7 @@ export default function MyApp({ Component, pageProps }) {
     setOpen(!isOpen);
   };
   // SET THEME
-  const [userTheme, setUserTheme] = useState(userTheme);
+  const [userTheme, setUserTheme] = useState('light');
   const activeTheme = themes[userTheme];
   const isDarkMode = userTheme === "dark";
   const isLightMode = userTheme === "light";
@@ -106,20 +106,20 @@ export default function MyApp({ Component, pageProps }) {
                 }
                 onClick={switchTheme}
               ></div>
-              <a href="/">
+              <Link href="/">
                 <div className="logo">
-                  <img src="/img/evermindlogo.png" />
+                  <img src="/img/evermindlogo.png" alt="Evermind!"/>
                 </div>
-              </a>
+              </Link>
             </div>
             <IoMenu className="menu" onClick={toggleMenu} />
             <StyledNav>
               <nav className={isOpen ? "active" : "null"}>
                 <IoClose className="closeMenu" onClick={toggleMenu} />
-                <a href="/">Página Inicial</a>
-                <a href="/articles">Artigos</a>
-                <a href="/meditations">Meditações</a>
-                <a href="/">Suporte</a>
+                <Link href="/">Página Inicial</Link>
+                <Link href="/articles">Artigos</Link>
+                <Link href="/meditations">Meditações</Link>
+                <Link href="/">Suporte</Link>
               </nav>
             </StyledNav>
           </div>
