@@ -1,10 +1,10 @@
-import { createGlobalStyle, ThemeProvider, styled } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Footer from "../components/Footer";
-import { IoMenu } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
+
 import React, { useState } from "react";
-import { Header, StyledNav } from "../components/styles";
-import Link from "next/link";
+import { Header } from "../components/Header";
+
+import ColorModeProvider, { ColorModeContext } from "../context/ColorMode";
 //
 //
 //  GLOBAL AND THEME - STYLED COMPONENTS DECLARATION
@@ -48,77 +48,55 @@ const themes = {
     textColor: "#ddd",
     backgroundColor: "#202020",
     boxColor: "linear-gradient(180deg, #202020, #555, #202020)",
-    backgroundOpacity: ".1",
+    backgroundOpacity: ".15",
     switcher: "#303136",
     navText: "#fff",
     moveSwitcher: "1.2rem",
   },
 };
 
-//
-//
-//  FUNCTION MYAPP DECLARATION
-//
-//
-export default function MyApp({ Component, pageProps }) {
-  // TOGGLE MENU MOBILE
-  const [isOpen, setOpen] = useState(false);
-  const toggleMenu = () => {
-    setOpen(!isOpen);
-  };
-  // SET THEME
-  const [userTheme, setUserTheme] = useState('light');
-  const activeTheme = themes[userTheme];
-  const isDarkMode = userTheme === "dark";
-  const isLightMode = userTheme === "light";
+//ThemeProvider -- prove o tema para toda a aplicação
+//ColorModeProvider -- prove o state do darkmode para todos components
 
-  const switchTheme = () => {
-    if (isDarkMode) {
-      setUserTheme("light");
-    localStorage.setItem('USER_THEME', 'light')}
+//
+// COVER ALL COMPONENTS AND PASS A CONTEXT
+//
 
-    if (isLightMode) {
-      setUserTheme("dark");
-      localStorage.setItem('USER_THEME', 'dark')}
-  };
-
-  React.useEffect(() => {
-    localStorage.getItem('USER_THEME')
-  },[])
-
+function ProviderWrapper(props) {
   return (
-    <>
-      <ThemeProvider theme={activeTheme}>
+    <ColorModeProvider initialMode={"dark"}>
+      {props.children}
+    </ColorModeProvider>
+  );
+}
+
+//
+// FUNCTION _APP - APPEND MYAPP AS CHILDREN OF COLORMODE
+//
+
+export default function _App(props) {
+  
+  return (
+    <ProviderWrapper>
+      <MyApp {...props} />
+    </ProviderWrapper>
+  );
+}
+
+  //
+  //  FUNCTION MYAPP - COMPONENTS THAT APPEARS ON SCREEN
+  //
+  
+  function MyApp({ Component, pageProps }) {
+    const contexto = React.useContext(ColorModeContext);
+    // console.log(contexto);
+    
+    return (
+      <ThemeProvider theme={themes[contexto.mode]}>
         <GlobalCSS />
-        <Header>
-          <div className="masterhead">
-            <div className="logobox">
-              <div
-                className="switcher"
-                
-                onClick={switchTheme}
-              ></div>
-              <Link href="/">
-                <div className="logo">
-                  <img src="/img/evermindlogo.png" alt="Evermind!" />
-                </div>
-              </Link>
-            </div>
-            <IoMenu className="menu" onClick={toggleMenu} />
-            <StyledNav>
-              <nav className={isOpen ? "active" : "null"} onClick={toggleMenu}>
-                <IoClose className="closeMenu" />
-                <Link href="/">Página Inicial</Link>
-                <Link href="/articles">Artigos</Link>
-                <Link href="/meditations">Meditações</Link>
-                <Link href="/">Suporte</Link>
-              </nav>
-            </StyledNav>
-          </div>
-        </Header>
+        <Header/>
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
-    </>
-  );
-}
+    );
+  }

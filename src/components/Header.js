@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+import Link from "next/link";
+import React, { useState } from "react";
+import { ColorModeContext } from "../context/ColorMode";
 
-export const Header = styled.div`
+const StyledHeader = styled.div`
   .masterhead {
     min-width: 100%;
     height: 6vh;
@@ -117,7 +122,7 @@ export const Header = styled.div`
   }
 `;
 
-export const StyledNav = styled.div`
+const StyledNav = styled.div`
   nav {
     margin-inline: 3vw;
     width: 40vw;
@@ -181,3 +186,45 @@ export const StyledNav = styled.div`
     }
   }
 `;
+
+export function Header() {
+  // TOGGLE MENU MOBILE
+  const [isOpen, setOpen] = useState(false);
+  const toggleMenu = () => {
+    setOpen(!isOpen);
+  };
+
+  const contexto = React.useContext(ColorModeContext);
+
+  const toggleMode = () => {
+    if (contexto.mode === 'dark')
+    contexto.toggleMode('light')
+    if (contexto.mode === 'light')
+    contexto.toggleMode('dark')
+  }
+
+  return (
+    <StyledHeader>
+      <div className="masterhead">
+        <div className="logobox">
+          <div className="switcher" onClick={toggleMode}></div>
+          <Link href="/">
+            <div className="logo">
+              <img src="/img/evermindlogo.png" alt="Evermind!" />
+            </div>
+          </Link>
+        </div>
+        <IoMenu className="menu" onClick={toggleMenu} />
+        <StyledNav>
+          <nav className={isOpen ? "active" : "null"} onClick={toggleMenu}>
+            <IoClose className="closeMenu" />
+            <Link href="/">Página Inicial</Link>
+            <Link href="/articles">Artigos</Link>
+            <Link href="/meditations">Meditações</Link>
+            <Link href="/">Suporte</Link>
+          </nav>
+        </StyledNav>
+      </div>
+    </StyledHeader>
+  );
+}

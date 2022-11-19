@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import React, { useState } from "react";
 
 // COMPONENT NEUROTRANSMITTERS
 
@@ -34,16 +34,30 @@ const StyledNeuro = styled.section`
   }
 
   section {
+    width: 100%;
+    min-height: calc(100vh - 88px);
     margin-top: 48px;
     display: flex;
-    background-image: url("/img/articlesbg.jpg");
     flex-direction: column;
+    align-items: center;
+    background-color: ${({ theme }) => theme.backgroundColor};
+    padding-bottom: 10%;
+    position: relative;
+    z-index: 5;
+  }
+  .bg{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-position: center;
     background-size: cover;
-    width: 100vw;
-    min-height: calc(100vh - 48px);
-    justify-content: center;
-    align-items: center;
+    background-image: url("/img/articlesbg.jpg");
+    opacity: ${({ theme }) => theme.backgroundOpacity};
   }
   .container1,
   .container2,
@@ -200,11 +214,14 @@ export default function Neurotransmitters() {
     setIsOpen4(false);
     setIsOpen5(false);
   };
+  
+  
+  
 
   return (
     <>
       <StyledNeuro>
-        <section>
+        <section><div className="bg"></div>
           <div className="container1">
             <button onClick={expandArticle1}>
               <h3>DA</h3>

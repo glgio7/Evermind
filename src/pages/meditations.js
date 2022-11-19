@@ -9,17 +9,30 @@ const StyledMeditation = styled.div`
     border-radius: 50%;
   }
   section {
-    min-width: 100%;
+    width: 100%;
     min-height: calc(100vh - 88px);
     margin-top: 48px;
-    padding-block: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    background-image: url("/img/articlesbg.jpg");
+    background-color: ${({ theme }) => theme.backgroundColor};
+    padding-bottom: 10%;
+    position: relative;
+    z-index: 5;
+  }
+  .bg{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-position: center;
     background-size: cover;
+    background-image: url("/img/articlesbg.jpg");
+    opacity: ${({ theme }) => theme.backgroundOpacity};
   }
   h1 {
     margin-top: 24px;
@@ -74,7 +87,7 @@ const StyledMeditation = styled.div`
 export default function Meditation() {
   return (<>
     <StyledMeditation>
-      <section>
+      <section><div className="bg"></div>
         <h1>Canais Recomendados</h1>
         <div className="container">
           <div className="channelsIcon">
