@@ -27,6 +27,7 @@ const StyledHeader = styled.div`
   img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 
   .logobox {
@@ -116,7 +117,7 @@ const StyledHeader = styled.div`
       height: 48px;
     }
     .logobox {
-      min-width: 240px;
+      min-width: 200px;
       height: 48px;
     }
   }
@@ -131,9 +132,10 @@ const StyledNav = styled.div`
     justify-content: space-between;
     a {
       font-size: 1rem;
-      font-family: "Ubuntu";
+      font-family: 'Poppins';
       color: ${({ theme }) => theme.navText};
       font-weight: bold;
+      transition: all ease 250ms;
     }
     a:hover {
       opacity: 0.75;
@@ -196,12 +198,7 @@ export function Header() {
 
   const contexto = React.useContext(ColorModeContext);
 
-  const toggleMode = () => {
-    if (contexto.mode === 'dark')
-    contexto.toggleMode('light')
-    if (contexto.mode === 'light')
-    contexto.toggleMode('dark')
-  }
+  const toggleMode = contexto.toggleMode
 
   return (
     <StyledHeader>

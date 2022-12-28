@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // COMPONENT KAIZEN
 
-const StyledSection = styled.section`
+const Section = styled.section`
   section {
     min-width: 100%;
     min-height: calc(100vh - 88px);
@@ -10,94 +10,59 @@ const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("/img/articlesbg.jpg");
     background-position: center;
     background-size: cover;
     padding-block: 12px;
+    background: rgb(106, 106, 106);
+    background: ${({ theme }) => theme.boxColor};
   }
 
   article {
-    border-radius: 8px;
     margin-top: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    background: rgb(106, 106, 106);
-    background: ${({ theme }) => theme.boxColor};
     overflow-y: auto;
-    padding-block: 5vh;
-  }
-  h1 {
-    margin-top: 24px;
-    font-size: 1.8rem;
-    font-family: "Ubuntu";
-    color: ${({ theme }) => theme.navText};
-    font-weight: bold;
-  }
-  h3 {
-    margin-block: 24px;
-    text-decoration: none;
-    font-family: "Ubuntu";
-    color: ${({ theme }) => theme.textColor};
-    opacity: 1;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  h4 {
-    margin-block: 24px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Ubuntu";
-    color: ${({ theme }) => theme.textColor};
-    opacity: 1;
-    font-size: 1.25rem;
-    font-weight: bold;
-    font-style: normal;
-  }
-  p {
-    width: 90%;
-    text-align: center;
-    margin-block: 12px;
-    font-size: 1.2rem;
-    font-family: "Ubuntu";
-    color: ${({ theme }) => theme.textColor};
-    opacity: 1;
-    font-style: italic;
-    font-weight: bold;
   }
 
-  @media screen and (max-width: 768px) {
-    p {
-      margin-block: 6px;
-      width: 90%;
-      text-align: center;
-      font-size: 1.2rem;
-      font-family: "Ubuntu";
-      opacity: 1;
-      font-style: oblique;
-      font-weight: bold;
-      font-style: italic;
-      padding-block: 1vh;
-    }
-    article {
-      padding-block: 5vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      width: 90%;
-      height: 100%;
-    }
+  h1,h3, h4, p {
+    margin-block: 1rem;
+    text-decoration: none;
+    font-family: "Poppins";
+    color: ${({ theme }) => theme.textColor};
+    opacity: 1;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  h1{
+    font-size: 3rem;
+  }
+
+  h3{
+    font-size: 1.5rem;
+  }
+
+  h4{
+    font-size: 1.25rem;
+    text-shadow: 0px 10px 6px ${({ theme }) => theme.backgroundColor};
+  }
+  
+  p {
+    word-break: break-word;
+    margin-block: 12px;
+    font-size: 1.1rem;
   }
 `;
 
 export default function Kaizen() {
   return (
     <>
-      <StyledSection>
+      <Section>
         <section>
           <h1>Kaizen</h1>
           <article>
@@ -163,7 +128,7 @@ export default function Kaizen() {
             <h4>Desejo uma boa jornada aos leitores do Evermind!</h4>
           </article>
         </section>
-      </StyledSection>
+      </Section>
     </>
   );
 }

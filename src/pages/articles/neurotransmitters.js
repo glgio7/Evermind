@@ -5,15 +5,10 @@ import React, { useState } from "react";
 
 const StyledNeuro = styled.section`
   button {
-    background-image: linear-gradient(
-      0deg,
-      rgba(1, 30, 143, 1) 0%,
-      rgba(0, 104, 255, 1) 32%,
-      rgba(0, 194, 255, 1) 89%
-    );
+    background: ${({ theme }) => theme.boxColor};
     border: 0;
     border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-shadow: #8000c7 0 10px 30px -5px;
     color: #ffffff;
     font-family: "Ubuntu", sans-serif;
     font-size: 1.2rem;
@@ -21,16 +16,18 @@ const StyledNeuro = styled.section`
     width: 80%;
     cursor: pointer;
     transition: all 0.2s;
+      &:hover {
+      outline: 0;
+      scale: 1.01;
+      }
+    
+      &:active {
+      scale: 1;
+      }
   }
-
-  button:active,
-  button:hover {
-    outline: 0;
-    scale: 1.01;
-  }
-
-  button:active {
-    transform: scale(0.9);
+  
+  h3 {
+    color: ${({ theme }) => theme.textColor};
   }
 
   section {
@@ -41,11 +38,10 @@ const StyledNeuro = styled.section`
     flex-direction: column;
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundColor};
-    padding-bottom: 10%;
     position: relative;
     z-index: 5;
   }
-  .bg{
+  .bg {
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -56,7 +52,7 @@ const StyledNeuro = styled.section`
     right: 0;
     background-position: center;
     background-size: cover;
-    background-image: url("/img/articlesbg.jpg");
+    background-image: url("/img/unsplash3.png");
     opacity: ${({ theme }) => theme.backgroundOpacity};
   }
   .container1,
@@ -65,7 +61,7 @@ const StyledNeuro = styled.section`
   .container4,
   .container5,
   .container6 {
-    margin-block: 9px;
+    margin-block: 1rem;
     border-radius: 8px;
     width: 100%;
     display: flex;
@@ -73,90 +69,32 @@ const StyledNeuro = styled.section`
     align-items: center;
     flex-direction: column;
     p {
-      margin-block: 20px;
       background-color: ${({ theme }) => theme.backgroundColor};
       text-align: center;
       font-size: 0rem;
-      font-family: "Ubuntu";
       color: ${({ theme }) => theme.textColor};
       width: 80%;
       border-radius: 8px;
-      display: none;
-      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 750ms;
       padding-inline: 20px;
     }
     button {
       width: 80%;
     }
     p.active {
-      display: flex;
-      padding-block: 40px;
+      opacity: 1;
+      pointer-events: all;
+      padding-block: 2rem;
       min-height: 84px;
       font-size: 1.25rem;
-    }
-  }
-  .button2 {
-    background: rgb(112, 90, 0);
-    background: linear-gradient(
-      0deg,
-      rgba(112, 90, 0, 1) 0%,
-      rgba(255, 171, 0, 1) 28%,
-      rgba(255, 188, 0, 1) 68%
-    );
-
-    width: 80%;
-  }
-  .button3 {
-    background: rgb(90, 0, 112);
-    background: linear-gradient(
-      0deg,
-      rgba(90, 0, 112, 1) 0%,
-      rgba(163, 7, 209, 1) 28%,
-      rgba(255, 0, 228, 1) 65%
-    );
-    width: 80%;
-  }
-  .button4 {
-    background: rgb(112, 0, 0);
-    background: linear-gradient(
-      0deg,
-      rgba(112, 0, 0, 1) 0%,
-      rgba(209, 7, 7, 1) 28%,
-      rgba(255, 0, 61, 1) 65%
-    );
-    width: 80%;
-  }
-
-  .button5 {
-    background: rgb(143, 63, 1);
-    background: linear-gradient(
-      0deg,
-      rgba(143, 63, 1, 1) 0%,
-      rgba(255, 98, 0, 1) 42%,
-      rgba(255, 136, 0, 1) 89%
-    );
-    width: 80%;
-  }
-  .button6 {
-    background: rgb(1, 140, 143);
-    background: linear-gradient(
-      0deg,
-      rgba(1, 140, 143, 1) 0%,
-      rgba(0, 255, 188, 1) 32%,
-      rgba(0, 224, 255, 1) 89%
-    );
-    width: 80%;
-  }
-  @media screen and (max-width: 768px) {
-    section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
   }
 `;
 
 export default function Neurotransmitters() {
+
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -214,14 +152,12 @@ export default function Neurotransmitters() {
     setIsOpen4(false);
     setIsOpen5(false);
   };
-  
-  
-  
 
   return (
     <>
       <StyledNeuro>
-        <section><div className="bg"></div>
+        <section>
+          <div className="bg"></div>
           <div className="container1">
             <button onClick={expandArticle1}>
               <h3>DA</h3>

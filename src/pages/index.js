@@ -1,11 +1,11 @@
-import SectionHome from '../components/SectionHome'
+import HomePage from '../components/HomePage'
 
 
 export default function Home() {
   return (
     <>
-    <SectionHome>
-    </SectionHome>
+    <HomePage>
+    </HomePage>
     </>
   )
 }

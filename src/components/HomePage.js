@@ -1,11 +1,11 @@
 import styled from "styled-components";
-// 
-// 
-// 
+import Link from "next/dist/client/link";
+
+
 // Component Stylesheet
-// 
-// 
-// 
+//
+//
+//
 
 const StyledSection = styled.div`
   .mastercontainer {
@@ -17,10 +17,13 @@ const StyledSection = styled.div`
     margin-top: 48px;
   }
   img {
+    border-radius: 20px;
     width: 100%;
     height: 100%;
   }
+  
   .container {
+    padding: 2rem;
     display: flex;
     background-color: ${({ theme }) => theme.backgroundColor};
     background-position: center;
@@ -33,7 +36,7 @@ const StyledSection = styled.div`
     z-index: 5;
   }
 
-  .bg1 {
+  .bg1, .bg2, .bg3 {
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -44,53 +47,33 @@ const StyledSection = styled.div`
     right: 0;
     background-position: center;
     background-size: cover;
-    background-image: url("/img/unsplash1.jpg");
     opacity: ${({ theme }) => theme.backgroundOpacity};
+  }
+  .bg1{
+    background-image: url("/img/unsplash1.png");
   }
   .bg2 {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-position: center;
-    background-size: cover;
-    background-image: url("/img/unsplash2.jpg");
-    opacity: ${({ theme }) => theme.backgroundOpacity};
+    background-image: url("/img/unsplash2.png");
   }
   .bg3 {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-position: center;
-    background-size: cover;
-    background-image: url("/img/unsplash3.jpg");
-    opacity: ${({ theme }) => theme.backgroundOpacity};
+    background-image: url("/img/unsplash3.png");
   }
 
   article {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     width: 50vw;
-    height: 100%;
-    padding-block: 12px;
+    min-height: calc(100vh - 48px);
+    /* border: 10px black solid; */
+    /* height: 100%; */
+    /* padding-block: 12px; */
   }
 
   .mainImage {
     width: 420px;
     height: 420px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
   }
   .kaizen {
     font-size: 10rem;
@@ -99,50 +82,105 @@ const StyledSection = styled.div`
     background: linear-gradient(
       0deg,
       rgba(115, 25, 0, 1) 0%,
-      rgba(191, 6, 6, 1) 8%,
-      rgba(255, 201, 0, 1) 89%
+      rgba(190, 6, 6, 1) 10%,
+      rgba(240, 200, 0, 1) 90%
     );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
+  
   h1 {
-    text-decoration: none;
-    font-size: 2rem;
-    font-family: "Ubuntu";
+    font-size: 3rem;
     color: ${({ theme }) => theme.textColor};
     font-weight: bold;
-    margin-bottom: 24px;
+    max-width: 90%;
+    margin-block: 1rem;
   }
   p {
-    font-size: 1.1rem;
-    font-family: "Ubuntu";
+    font-size: 1.25rem;
     color: ${({ theme }) => theme.textColor};
-    width: 90%;
-    font-style: italic;
+    max-width: 90%;
     font-weight: bold;
-    margin-bottom: 24px;
+    margin-block: .5rem;
   }
   h3 {
-    text-decoration: none;
-    font-family: "Ubuntu";
+    max-width: 90%;
+    font-size: 2rem;
     color: ${({ theme }) => theme.textColor};
     font-weight: bold;
-    font-size: 1.55rem;
-    margin-bottom: 12px;
+    margin-block: 1rem;
+  }
+  .ht, .gaba, .ach, .ne, .da, .glu{
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: firebrick;
+    border: 2px #fff outset;
+    
+  }
+  .neuros{
+    object-fit: cover;
+  }
+  span{
+    color: #fff;
+    font-weight:bold;
+    font-size: 1.5rem
   }
 
+  .ht{
+    background-color: #00bb9c;
+    right: 15%;
+    top: 8.5%;
+  }
+
+  .glu{
+    background-color: #ff8600;
+    right: 15%;
+    top: 35%;
+  }
+
+  .ach{
+    background-color: #ff00e2;
+    right: 15%;
+    top: 61.5%;
+  }
+
+  .ne{
+    background-color: #ffc900;
+    right: 40%;
+    top: 48%;
+  }
+
+  .gaba{
+    background-color: #ff1300;
+    right: 40%;
+    top: 21%;
+  }
+  .da{
+    background-color: #0099ff;
+    right: 65%;
+    top: 35%;
+  }
+  
   @media screen and (max-width: 768px) {
     img {
       width: 100%;
       height: 100%;
     }
     .mainImage {
-      width: 360px;
-      height: 360px;
+      width: 300px;
+      height: 300px;
     }
-    .container{
+    .kaizen{
+      font-size: 8rem;
+    }
+    .container {
+      padding: 1rem 0;
       flex-direction: column;
       background-color: ${({ theme }) => theme.backgroundColor};
       width: 100vw;
@@ -150,54 +188,39 @@ const StyledSection = styled.div`
       justify-content: space-around;
       align-items: center;
     }
-    
+
     article {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       width: 90%;
       height: 100%;
-      padding-block: 0px;
+    }
+    h1, h3, p {
+      word-break: break-word;
+      width: 100%;
+      text-align: center;
     }
     h1 {
       font-size: 2rem;
-      font-family: "Ubuntu";
-      color: ${({ theme }) => theme.textColor};
-      font-weight: bold;
-      margin-bottom: 12px;
-      text-align: center;
     }
-    p {
-      width: 90%;
-      text-align: center;
-      font-size: 1.2rem;
-      font-family: "Ubuntu";
-      color: ${({ theme }) => theme.textColor};
-      font-weight: bold;
-      font-style: italic;
-      margin-bottom: 24px;
-      text-align: center;
+    p{
+      font-size: 1rem;
+      line-height: 1.75rem;
     }
-    h3 {
-      margin-bottom: 6px;
+    h3{
       font-size: 1.5rem;
-      text-decoration: none;
-      font-family: "Ubuntu";
-      color: ${({ theme }) => theme.textColor};
-      font-weight: bold;
-      text-align: center;
+    }
+    span{
+      font-size: 1rem;
     }
   }
 `;
 
-// 
-// 
-// 
 // Component declaration
-// 
-// 
-// 
+//
+//
+//
 
 export default function Section() {
   return (
@@ -205,36 +228,28 @@ export default function Section() {
       <div className="mastercontainer">
         <div className="container">
           <div className="bg1"></div>
-          <div className="mainImage">
-            <span className="kaizen">改善</span>
-          </div>
           <article>
             <h1>Kaizen</h1>
             <p>
-              Kai significando mudança, Zen significando bom. Kaizen é um termo
-              japonês que define um processo de evolução.
-            </p>
-            <p>
-              Mais do que apenas um termo, o conceito de Kaizen resume-se a
+              Kaizen é um termo japonês que define um processo de evolução, um conceito de
               pequenas mudanças, de forma constante e construtiva.
             </p>
             <p>
               Os benefícios a longo prazo aparecem, contanto que haja mudança,
-              por menor que seja, de forma constante. <br />
+              por menor que seja, sendo constante. <br />
               Experimente dividir sua vida em áreas, e todos os dias, trabalhe
               em cada área que deseja melhorar, mesmo que por apenas 5 minutos.
             </p>
-            <p>
-              Como seres humanos, exploramos pela recompensa. Comece explorando
+            <p>Como seres humanos, exploramos pela recompensa. Comece explorando
               pequeno, mas pense grande!
             </p>
           </article>
+          <div className="kaizen">
+            <span className="kaizen">改善</span>
+          </div>
         </div>
         <div className="container">
           <div className="bg2"></div>
-          <div className="mainImage">
-            <img src="/img/neuro.png" />
-          </div>
           <article>
             <h1>Neurotransmissores</h1>
             <p>
@@ -256,18 +271,30 @@ export default function Section() {
               o movimento da vida para nossos objetivos.
             </p>
           </article>
+            <Link href="/articles/neurotransmitters">
+          <div className="mainImage"><img src="/img/unsplash2.png"/>
+            <div className="ht"><span>5HT</span></div>
+            <div className="glu"><span>GLU</span></div>
+            <div className="ach"><span>ACH</span></div>
+            <div className="ne"><span>NE</span></div>
+            <div className="gaba"><span>GABA</span></div>
+            <div className="da"><span>DA</span></div>
+          </div></Link>
         </div>
         <div className="container">
           <div className="bg3"></div>
-          <div className="mainImage">
-            <img src="/img/infinity.png" />
-          </div>
           <article>
             <h1>Meditações</h1>
             <p>
               Se você já tentou melhorar sua vida após passar por um período de
               estresse, provavelmente já ouviu alguém dizer: "Você precisa
               meditar!".
+            </p>
+            <p>
+              O que poucas pessoas sabem, é que é possível meditar fazendo
+              qualquer coisa, desde que essa atividade possua ritmo e te permita
+              entrar no chamado "estado de flow" ou o famoso "estado de
+              presença".
             </p>
             <h3>Mas o que é meditar?</h3>
             <p>
@@ -276,13 +303,7 @@ export default function Section() {
               levar por estímulos externos. Existem meditações mais complexas,
               como se abster dos pensamentos e se concentrar em si próprio e
               algum elemento externo (geralmente algo relacionado à natureza), e
-              alinhando ambas as coisas. Como se fossem um só!{" "}
-            </p>
-            <p>
-              O que poucas pessoas sabem, é que é possível meditar fazendo
-              qualquer coisa, desde que essa atividade possua ritmo e te permita
-              entrar no chamado "estado de flow" ou o famoso "estado de
-              presença".
+              alinhando ambas as coisas. Como se fossem um só!
             </p>
             <p>
               Na teoria parece complicado, mas considere acessar a aba
@@ -291,6 +312,9 @@ export default function Section() {
               apegar aos pensamentos que surgirem.
             </p>
           </article>
+          <div className="mainImage">
+            <img src="/img/infinity.png" />
+          </div>
         </div>
       </div>
     </StyledSection>

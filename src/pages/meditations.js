@@ -16,7 +16,6 @@ const StyledMeditation = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundColor};
-    padding-bottom: 10%;
     position: relative;
     z-index: 5;
   }
@@ -31,27 +30,25 @@ const StyledMeditation = styled.div`
     right: 0;
     background-position: center;
     background-size: cover;
-    background-image: url("/img/articlesbg.jpg");
+    background-image: url("/img/unsplash2.png");
     opacity: ${({ theme }) => theme.backgroundOpacity};
   }
+
   h1 {
+    font-weight: bold;
+    color: ${({theme}) => theme.navText};
     margin-top: 24px;
     font-size: 1.8rem;
-    font-family: "Ubuntu";
-    color: ${({theme}) => theme.navText};
-    font-weight: 600;
   }
   h3 {
-    text-decoration: none;
-    font-family: "Ubuntu";
-    color: ${({theme}) => theme.navText};
-    font-weight: 600;
-    font-size: 1.25rem;
     font-weight: bold;
+    color: ${({theme}) => theme.textColor};
+    font-size: 1.25rem;
   }
   .container {
     border-radius: 8px;
-    margin-top: 24px;
+    margin-block: 18px;
+    box-shadow: #8000c7 0 10px 20px -5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +56,7 @@ const StyledMeditation = styled.div`
     width: 80%;
     height: 100%;
     min-height: 156px;
+    padding: 6px 0;
     background: rgb(106, 106, 106);
     background: ${({theme}) => theme.boxColor};
   }
@@ -68,9 +66,7 @@ const StyledMeditation = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    .container {
-      min-height: 120px;
-    }
+   
   .channelsIcon {
     width: 96px;
     height: 96px;

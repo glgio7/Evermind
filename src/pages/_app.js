@@ -17,15 +17,15 @@ const GlobalCSS = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -37,7 +37,7 @@ const themes = {
   light: {
     textColor: "#111",
     backgroundColor: "#d0d0d0",
-    boxColor: "linear-gradient(135deg, #700ccc, #fff, #700fff)",
+    boxColor: "linear-gradient(90deg, #fff, #ccc, #700ccc)",
     backgroundOpacity: "1",
     switcher: "linear-gradient(40deg, #ff0080, #ff8c00 70%)",
     navText: "#fff",
@@ -46,8 +46,8 @@ const themes = {
 
   dark: {
     textColor: "#ddd",
-    backgroundColor: "#202020",
-    boxColor: "linear-gradient(180deg, #202020, #555, #202020)",
+    backgroundColor: "#101010",
+    boxColor: "linear-gradient(90deg, #202020, #555, #555, #202020)",
     backgroundOpacity: ".15",
     switcher: "#303136",
     navText: "#fff",
@@ -64,9 +64,25 @@ const themes = {
 
 function ProviderWrapper(props) {
   return (
-    <ColorModeProvider initialMode={"dark"}>
-      {props.children}
-    </ColorModeProvider>
+    <ColorModeProvider initialMode={"dark"}>{props.children}</ColorModeProvider>
+  );
+}
+
+//
+//  FUNCTION MYAPP - COMPONENTS THAT APPEARS ON SCREEN
+//
+
+function MyApp({ Component, pageProps }) {
+  const contexto = React.useContext(ColorModeContext);
+  // console.log(contexto);
+
+  return (
+    <ThemeProvider theme={themes[contexto.mode]}>
+      <GlobalCSS />
+      <Header />
+      <Component {...pageProps} /> {/* EACH PAGE IS LIKE A PARENT COMPONENT THAT APPEND CHILDRENS COMPONENTS, AND MY APP RECEIVE AS PARAMETER COMPONENT (PARENT COMPONENT) AND YOUR PROPS (CHILDRENS COMPONENTS) -- IF YOU REMOVE PAGEPROPS AS PARAMETER, MYAPP FUNCTION STILL WORKS*/}
+      <Footer />
+    </ThemeProvider>
   );
 }
 
@@ -75,28 +91,9 @@ function ProviderWrapper(props) {
 //
 
 export default function _App(props) {
-  
   return (
     <ProviderWrapper>
       <MyApp {...props} />
     </ProviderWrapper>
   );
 }
-
-  //
-  //  FUNCTION MYAPP - COMPONENTS THAT APPEARS ON SCREEN
-  //
-  
-  function MyApp({ Component, pageProps }) {
-    const contexto = React.useContext(ColorModeContext);
-    // console.log(contexto);
-    
-    return (
-      <ThemeProvider theme={themes[contexto.mode]}>
-        <GlobalCSS />
-        <Header/>
-        <Component {...pageProps} />
-        <Footer />
-      </ThemeProvider>
-    );
-  }
