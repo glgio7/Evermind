@@ -67,7 +67,7 @@ const StyledSection = styled.section`
 
   h1 {
     margin-block: 24px;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   h3 {
     font-size: 1.25rem;
@@ -97,7 +97,7 @@ export default function Articles() {
           </Link>
           <Link href="https://encurtador.com.br/ou023" target="_blank">
             <button className="container">
-              <h3>Notícias sobre a mente humana</h3>
+              <h3>Notícias sobre a mente</h3>
             </button>
           </Link>
         </section>

@@ -36,9 +36,10 @@ const StyledMeditation = styled.div`
 
   h1 {
     font-weight: bold;
-    color: ${({theme}) => theme.navText};
+    text-shadow: 0px 6px 6px ${({ theme }) => theme.backgroundColor};
+    color: ${({theme}) => theme.textColor};
     margin-top: 24px;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   h3 {
     font-weight: bold;
@@ -71,12 +72,6 @@ const StyledMeditation = styled.div`
     width: 96px;
     height: 96px;
   }
-    h1 {
-      font-size: 1.5rem;
-    }
-    h3 {
-      font-size: 1.1rem;
-    }
   }
 `;
 

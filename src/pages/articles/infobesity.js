@@ -41,7 +41,8 @@ const Section = styled.section`
     
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    text-shadow: 0px 6px 6px ${({ theme }) => theme.backgroundColor};
   }
   h3 {
     font-size: 1.5rem;

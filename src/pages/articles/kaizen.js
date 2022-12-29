@@ -40,16 +40,16 @@ const Section = styled.section`
   }
   
   h1{
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   h3{
     font-size: 1.5rem;
   }
-
   h4{
-    font-size: 1.25rem;
-    text-shadow: 0px 10px 6px ${({ theme }) => theme.backgroundColor};
+    font-size: 1.25rem;}
+  h1,h4{
+    text-shadow: 0px 6px 6px ${({ theme }) => theme.backgroundColor};
   }
   
   p {

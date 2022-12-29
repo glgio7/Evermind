@@ -73,8 +73,8 @@ const StyledNeuro = styled.section`
       text-align: center;
       font-size: 0rem;
       color: ${({ theme }) => theme.textColor};
-      width: 80%;
-      border-radius: 8px;
+      width: 78%;
+      border-radius:  0 0 8px 8px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 750ms;
@@ -160,7 +160,7 @@ export default function Neurotransmitters() {
           <div className="bg"></div>
           <div className="container1">
             <button onClick={expandArticle1}>
-              <h3>DA</h3>
+              <h3>DA - Dopamina</h3>
             </button>
 
             <p className={isOpen1 ? "active" : "null"}>
@@ -173,7 +173,7 @@ export default function Neurotransmitters() {
           </div>
           <div className="container2">
             <button onClick={expandArticle2} className="button2">
-              <h3>NE</h3>
+              <h3>NE - Noradrenalina</h3>
             </button>
             <p className={isOpen2 ? "active" : "null"}>
               Além de aumentar a energia química no organismo para que esse
@@ -186,7 +186,7 @@ export default function Neurotransmitters() {
           </div>
           <div className="container3">
             <button onClick={expandArticle3} className="button3">
-              <h3>ACH</h3>
+              <h3>ACH - Acetilcolina</h3>
             </button>
             <p className={isOpen3 ? "active" : "null"}>
               A acetilcolina (ACh) foi o primeiro neurotransmissor descoberto
@@ -197,7 +197,7 @@ export default function Neurotransmitters() {
           </div>
           <div className="container4">
             <button onClick={expandArticle4} className="button4">
-              <h3>GABA</h3>
+              <h3>GABA - Aminoácido</h3>
             </button>
             <p className={isOpen4 ? "active" : "null"}>
               Ao se ligar a uma proteína presente no cérebro, conhecida como
@@ -208,7 +208,7 @@ export default function Neurotransmitters() {
           </div>
           <div className="container5">
             <button onClick={expandArticle5} className="button5">
-              <h3>GLU</h3>
+              <h3>GLU - Glutamato</h3>
             </button>
             <p className={isOpen5 ? "active" : "null"}>
               Apesar de não ser exatamente um neurotransmissor, ele atua no
@@ -219,7 +219,7 @@ export default function Neurotransmitters() {
           </div>
           <div className="container6">
             <button onClick={expandArticle6} className="button6">
-              <h3>5HT</h3>
+              <h3>5HT - Serotonina</h3>
             </button>
             <p className={isOpen6 ? "active" : "null"}>
               A serotonina, conhecida como o hormônio da felicidade, regula o

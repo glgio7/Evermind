@@ -23,7 +23,6 @@ const StyledSection = styled.div`
   }
   
   .container {
-    padding: 2rem;
     display: flex;
     background-color: ${({ theme }) => theme.backgroundColor};
     background-position: center;
@@ -60,6 +59,7 @@ const StyledSection = styled.div`
   }
 
   article {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,6 +71,11 @@ const StyledSection = styled.div`
   }
 
   .mainImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-image: url("/img/unsplash2.png");
     width: 420px;
     height: 420px;
     position: relative;
@@ -190,6 +195,8 @@ const StyledSection = styled.div`
     }
 
     article {
+      padding: .25rem;
+      min-height: initial;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -205,7 +212,7 @@ const StyledSection = styled.div`
       font-size: 2rem;
     }
     p{
-      font-size: 1rem;
+      font-size: 1.25rem;
       line-height: 1.75rem;
     }
     h3{
@@ -244,7 +251,7 @@ export default function Section() {
               pequeno, mas pense grande!
             </p>
           </article>
-          <div className="kaizen">
+          <div className="mainImage">
             <span className="kaizen">改善</span>
           </div>
         </div>

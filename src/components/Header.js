@@ -132,7 +132,6 @@ const StyledNav = styled.div`
     justify-content: space-between;
     a {
       font-size: 1rem;
-      font-family: 'Poppins';
       color: ${({ theme }) => theme.navText};
       font-weight: bold;
       transition: all ease 250ms;
@@ -148,37 +147,34 @@ const StyledNav = styled.div`
 
   @media screen and (max-width: 768px) {
     nav {
-      margin: 0 auto;
-      position: absolute;
       z-index: 99;
+      position: absolute;
       width: 100vw;
+      min-width: initial;
       height: 100vh;
-      left: 0;
-      right: 0;
-      top: -100vh;
-      display: flex;
+      margin: 0 auto;
+      left: -100vw;
+      top: 0;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      background: rgb(29, 0, 36);
-      backdrop-filter: blur(2px);
+      background: rgb(30, 0, 40);
       background: linear-gradient(
-        185deg,
-        rgba(29, 0, 36, 0.9) 0%,
+        180deg,
+        rgba(30, 0, 40, 1) 0%,
         rgba(160, 0, 255, 1) 35%,
-        rgba(70, 9, 121, 1) 100%
-      );
-      transition: all 0.5s ease;
-    }
-
-    nav.active {
-      transform: translateY(100%);
-      opacity: 1;
-    }
-
-    .closeMenu {
-      display: block;
-      width: 36px;
+        rgba(70, 10, 120, 1) 100%
+        );
+        transition: all 300ms ease;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      .closeMenu {
+        display: block;
+        width: 36px;
       height: 36px;
       position: absolute;
       top: 10px;
