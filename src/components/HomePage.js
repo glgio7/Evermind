@@ -65,9 +65,6 @@ const StyledSection = styled.div`
     justify-content: center;
     width: 50vw;
     min-height: calc(100vh - 48px);
-    /* border: 10px black solid; */
-    /* height: 100%; */
-    /* padding-block: 12px; */
   }
 
   .mainImage {
@@ -75,7 +72,7 @@ const StyledSection = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    background-image: url("/img/unsplash2.png");
+    background-image: url("/img/unsplashmain.jpg");
     width: 420px;
     height: 420px;
     position: relative;
@@ -252,7 +249,8 @@ export default function Section() {
             </p>
           </article>
           <div className="mainImage">
-            <span className="kaizen">改善</span>
+            <Link href="articles/kaizen">
+            <span className="kaizen">改善</span></Link>
           </div>
         </div>
         <div className="container">
@@ -279,7 +277,7 @@ export default function Section() {
             </p>
           </article>
             <Link href="/articles/neurotransmitters">
-          <div className="mainImage"><img src="/img/unsplash2.png"/>
+          <div className="mainImage"><img src="/img/unsplashmain.jpg"/>
             <div className="ht"><span>5HT</span></div>
             <div className="glu"><span>GLU</span></div>
             <div className="ach"><span>ACH</span></div>
@@ -320,7 +318,8 @@ export default function Section() {
             </p>
           </article>
           <div className="mainImage">
-            <img src="/img/infinity.png" />
+            <Link href="/meditations">
+            <img src="/img/infinity.png" /></Link>
           </div>
         </div>
       </div>
