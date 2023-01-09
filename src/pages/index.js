@@ -1,11 +1,10 @@
-import HomePage from '../components/HomePage'
+import Home from './home/index'
 
 
-export default function Home() {
+export default function Index() {
   return (
     <>
-    <HomePage>
-    </HomePage>
+    <Home/>
     </>
   )
 }

@@ -18,18 +18,20 @@ const StyledSection = styled.div`
   }
   img {
     border-radius: 20px;
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
   
   .container {
+    padding: 1rem;
+    width: 100%;
     display: flex;
     background-color: ${({ theme }) => theme.backgroundColor};
     background-position: center;
     background-size: cover;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100%;
     min-height: calc(100vh - 48px);
     position: relative;
     z-index: 5;
@@ -59,11 +61,11 @@ const StyledSection = styled.div`
   }
 
   article {
-    padding: 1rem;
+    padding-left: 3rem ;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50vw;
+    width: 45vw;
     min-height: calc(100vh - 48px);
   }
 
@@ -73,8 +75,9 @@ const StyledSection = styled.div`
     justify-content: center;
     border-radius: 20px;
     background-image: url("/img/unsplashmain.jpg");
+    background-size: cover;
     width: 420px;
-    height: 420px;
+    height: 360px;
     position: relative;
   }
   .kaizen {
@@ -94,9 +97,10 @@ const StyledSection = styled.div`
   
   h1 {
     font-size: 3rem;
+    word-break: break-word;
     color: ${({ theme }) => theme.textColor};
     font-weight: bold;
-    max-width: 90%;
+    max-width: 100%;
     margin-block: 1rem;
   }
   p {
@@ -116,7 +120,7 @@ const StyledSection = styled.div`
   .ht, .gaba, .ach, .ne, .da, .glu{
     border-radius: 50%;
     width: 30%;
-    height: 30%;
+    height: 36%;
     position: absolute;
     display: flex;
     align-items: center;
@@ -125,9 +129,7 @@ const StyledSection = styled.div`
     border: 2px #fff outset;
     
   }
-  .neuros{
-    object-fit: cover;
-  }
+  
   span{
     color: #fff;
     font-weight:bold;
@@ -136,37 +138,37 @@ const StyledSection = styled.div`
 
   .ht{
     background-color: #00bb9c;
-    right: 15%;
-    top: 8.5%;
+    right: 60%;
+    bottom: 5%;
   }
-
+  
   .glu{
     background-color: #ff8600;
-    right: 15%;
-    top: 35%;
+    bottom: 5%;
+    margin: 0 auto;
   }
-
+  
   .ach{
     background-color: #ff00e2;
-    right: 15%;
-    top: 61.5%;
+    left: 60%;
+    bottom: 5%;
   }
-
+  
   .ne{
     background-color: #ffc900;
-    right: 40%;
-    top: 48%;
+    right: 20%;
+    bottom: 30%;
   }
-
+  
   .gaba{
     background-color: #ff1300;
-    right: 40%;
-    top: 21%;
+    left: 20%;
+    bottom: 30%;
   }
   .da{
     background-color: #0099ff;
-    right: 65%;
-    top: 35%;
+    margin: 0 auto;
+    top: 10%;
   }
   
   @media screen and (max-width: 768px) {
@@ -176,13 +178,15 @@ const StyledSection = styled.div`
     }
     .mainImage {
       width: 300px;
-      height: 300px;
+      height: 240px;
+    }
+    .ht, .gaba, .ach, .ne, .da, .glu{
+      height: 38%;
     }
     .kaizen{
       font-size: 8rem;
     }
     .container {
-      padding: 1rem 0;
       flex-direction: column;
       background-color: ${({ theme }) => theme.backgroundColor};
       width: 100vw;
@@ -192,7 +196,7 @@ const StyledSection = styled.div`
     }
 
     article {
-      padding: .25rem;
+      padding-left: 0;
       min-height: initial;
       display: flex;
       flex-direction: column;
@@ -207,6 +211,7 @@ const StyledSection = styled.div`
     }
     h1 {
       font-size: 2rem;
+      max-width: initial;
     }
     p{
       font-size: 1.25rem;
@@ -226,12 +231,16 @@ const StyledSection = styled.div`
 //
 //
 
-export default function Section() {
+export default function Home() {
   return (
     <StyledSection>
       <div className="mastercontainer">
         <div className="container">
           <div className="bg1"></div>
+          <div className="mainImage">
+            <Link href="articles/kaizen">
+              <span className="kaizen">改善</span></Link>
+          </div>
           <article>
             <h1>Kaizen</h1>
             <p>
@@ -248,13 +257,18 @@ export default function Section() {
               pequeno, mas pense grande!
             </p>
           </article>
-          <div className="mainImage">
-            <Link href="articles/kaizen">
-            <span className="kaizen">改善</span></Link>
-          </div>
         </div>
         <div className="container">
           <div className="bg2"></div>
+          <Link href="/articles/neurotransmitters">
+            <div className="mainImage" id="neuros"><img src="/img/unsplashmain.jpg" />
+              <div className="ht"><span>5HT</span></div>
+              <div className="glu"><span>GLU</span></div>
+              <div className="ach"><span>ACH</span></div>
+              <div className="ne"><span>NE</span></div>
+              <div className="gaba"><span>GABA</span></div>
+              <div className="da"><span>DA</span></div>
+            </div></Link>
           <article>
             <h1>Neurotransmissores</h1>
             <p>
@@ -276,18 +290,14 @@ export default function Section() {
               o movimento da vida para nossos objetivos.
             </p>
           </article>
-            <Link href="/articles/neurotransmitters">
-          <div className="mainImage"><img src="/img/unsplashmain.jpg"/>
-            <div className="ht"><span>5HT</span></div>
-            <div className="glu"><span>GLU</span></div>
-            <div className="ach"><span>ACH</span></div>
-            <div className="ne"><span>NE</span></div>
-            <div className="gaba"><span>GABA</span></div>
-            <div className="da"><span>DA</span></div>
-          </div></Link>
         </div>
         <div className="container">
           <div className="bg3"></div>
+          <Link href="/meditations">
+            <div className="mainImage">
+              <img src="/img/infinity.png" />
+            </div>
+            </Link>
           <article>
             <h1>Meditações</h1>
             <p>
@@ -317,10 +327,6 @@ export default function Section() {
               apegar aos pensamentos que surgirem.
             </p>
           </article>
-          <div className="mainImage">
-            <Link href="/meditations">
-            <img src="/img/infinity.png" /></Link>
-          </div>
         </div>
       </div>
     </StyledSection>

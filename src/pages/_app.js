@@ -1,7 +1,7 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Footer from "../components/Footer";
 
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "../components/Header";
 
 import ColorModeProvider, { ColorModeContext } from "../context/ColorMode";
