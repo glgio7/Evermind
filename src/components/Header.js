@@ -214,7 +214,7 @@ export function Header() {
             <Link href="/">Página Inicial</Link>
             <Link href="/articles">Artigos</Link>
             <Link href="/meditations">Meditações</Link>
-            <Link href="/">Suporte</Link>
+            <Link href="https://github.com/glgio7/Evermind" target={"_blank"}>Repositório</Link>
           </nav>
         </StyledNav>
       </div>

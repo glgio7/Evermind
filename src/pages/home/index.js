@@ -51,13 +51,13 @@ const StyledSection = styled.div`
     opacity: ${({ theme }) => theme.backgroundOpacity};
   }
   .bg1{
-    background-image: url("/img/unsplash1.png");
+    background-image: url("/img/unsplash1.jpg");
   }
   .bg2 {
-    background-image: url("/img/unsplash2.png");
+    background-image: url("/img/unsplash2.jpg");
   }
   .bg3 {
-    background-image: url("/img/unsplash3.png");
+    background-image: url("/img/unsplash3.jpg");
   }
 
   article {
@@ -74,7 +74,7 @@ const StyledSection = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    background-image: url("/img/unsplashmain.jpg");
+    background-image: url("/img/unsplashmain.png");
     background-size: cover;
     width: 420px;
     height: 360px;
@@ -107,7 +107,7 @@ const StyledSection = styled.div`
     font-size: 1.25rem;
     color: ${({ theme }) => theme.textColor};
     max-width: 90%;
-    font-weight: bold;
+    font-weight: normal;
     margin-block: .5rem;
   }
   h3 {
@@ -272,22 +272,13 @@ export default function Home() {
           <article>
             <h1>Neurotransmissores</h1>
             <p>
-              Nassim Taleb, autor dos best sellers "O Antifrágil" e "A lógica do
-              Cisne Negro" define um organismo como uma sociedade de indivíduos.
+            Os neurotransmissores são essenciais para o funcionamento do sistema nervoso e do cérebro. Eles estão envolvidos em muitos processos fisiológicos e comportamentais, como a regulação do humor, do sono, da memória, do movimento e da resposta ao estresse.
             </p>
             <p>
-              Seguindo essa lógica, é possível dizer que nosso cerébro, é uma
-              sociedade de indivíduos. Alguns deles, são chamados de
-              Neurotransmissores.
+            Alterações nos níveis ou na função dos neurotransmissores podem levar a disfunções neurológicas e psiquiátricas, como a depressão, a ansiedade, o Parkinson e o Alzheimer.
             </p>
             <p>
-              Se pudessemos definir a vida em uma palavra, "movimento" talvez
-              fosse a melhor opção. A idéia aqui é lembrar que, nada que é vivo
-              está parado.
-            </p>
-            <p>
-              Conhecer esses "indivíduos" do cérebro é essencial para direcionar
-              o movimento da vida para nossos objetivos.
+            Cada neurotransmissor seria como uma carta com um conteúdo específico e um receptor seria como uma caixa de correio com uma chave específica que só abre aquela carta. Assim, a mensagem só é entregue à célula nervosa que tem o receptor certo para aquele neurotransmissor.
             </p>
           </article>
         </div>
@@ -297,34 +288,21 @@ export default function Home() {
             <div className="mainImage">
               <img src="/img/infinity.png" />
             </div>
-            </Link>
+          </Link>
           <article>
             <h1>Meditações</h1>
             <p>
-              Se você já tentou melhorar sua vida após passar por um período de
-              estresse, provavelmente já ouviu alguém dizer: "Você precisa
-              meditar!".
+            Algumas das primeiras referências à meditação são encontradas em textos hindus antigos, como os Vedas e os Upanishads, que descrevem técnicas de meditação para alcançar a união com o divino.
             </p>
             <p>
-              O que poucas pessoas sabem, é que é possível meditar fazendo
-              qualquer coisa, desde que essa atividade possua ritmo e te permita
-              entrar no chamado "estado de flow" ou o famoso "estado de
-              presença".
+            Na tradição budista, a meditação é uma prática central para alcançar a iluminação, sendo ensinada pelo próprio Buda.
             </p>
             <h3>Mas o que é meditar?</h3>
             <p>
-              A meditação é um ato de auto-contemplação, onde você se coloca
-              como centro da sua realidade e se mantém assim, sem se deixar
-              levar por estímulos externos. Existem meditações mais complexas,
-              como se abster dos pensamentos e se concentrar em si próprio e
-              algum elemento externo (geralmente algo relacionado à natureza), e
-              alinhando ambas as coisas. Como se fossem um só!
+              Uma prática milenar que busca a paz interior e equilíbrio emocional.
             </p>
             <p>
-              Na teoria parece complicado, mas considere acessar a aba
-              "Meditações" e ouvir algum dos canais recomendados, enquanto
-              arruma a casa, faz uma caminhada ou prepara o almoço, sem se
-              apegar aos pensamentos que surgirem.
+              A meditação requer paciência, disciplina e persistência para ser efetiva, sendo um processo individual que exige autoconhecimento.
             </p>
           </article>
         </div>
