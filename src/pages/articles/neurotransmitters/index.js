@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyledNeuro } from "./styles";
+import StyledNeuro from "./styles";
 
 
 const Neurotransmitters = () => {

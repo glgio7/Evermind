@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledNeuro = styled.section`
+const StyledNeuro = styled.section`
   button {
     background: ${({ theme }) => theme.boxColor};
     border: 0;
@@ -89,3 +89,5 @@ export const StyledNeuro = styled.section`
     }
   }
 `;
+
+export default StyledNeuro;
